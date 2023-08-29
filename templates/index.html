@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<h1>Добро пожаловать в соцсеть</h1>
+<a href="{% url 'regform' %}"><button>Зарегистрироваться</button></a>
+
+</body>
+</html>
