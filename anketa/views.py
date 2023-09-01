@@ -1,8 +1,5 @@
-from django.shortcuts import render
-from .myforms import *
-
-datanames = ['E-mail:', 'Имя', 'Фамилия', 'Отчество', 'Пол:', 'Возраст', 'Язык',
-             'Люблю собак?', 'Люблю кошек?', 'Умею готовить?', 'Религия:']
+from django.shortcuts import render, redirect, reverse
+from .myforms import RegForm
 
 
 def index(req):
@@ -11,13 +8,18 @@ def index(req):
 
 def regform(req):
     if req.POST:
-        form = RegForm(req.POST)
-        data = list(req.POST.values())
-        print(data)
+        data = req.POST.dict()
+        data.pop('csrfmiddlewaretoken')
+        try:
+            avatar = req.FILES['avatar']
+            file = open('anketa/static/upload/300' + avatar.name, 'wb')
+            file.write(avatar.read())
+            file.close()
+            data['avatar'] = '/upload/' + avatar.name
+        except:
+            pass
+        return render(req, 'page.html', data)
     else:
         form = RegForm()
-    return render(req, 'forma.html', context={'form': form})
+        return render(req, 'forma.html', context={'form': form})
 
-
-def page(req):
-    pass

@@ -1,10 +1,10 @@
 from django import forms
 
 class RegForm(forms.Form):
-    email = forms.EmailField(label='E-mail')
+    email = forms.EmailField(label='E-mail', initial='q@e.ru')
 
-    name = forms.CharField(label='Имя')
-    surname = forms.CharField(label='Фамилия')
+    name = forms.CharField(label='Имя', initial='q')
+    surname = forms.CharField(label='Фамилия', initial='q')
     secondname = forms.CharField(label='Отчество (при наличии)', required=False)
 
     sexes = ((None, '❓'), ('мужской', '♂️ 	'), ('женский', '♀️ 	'))
@@ -23,9 +23,9 @@ class RegForm(forms.Form):
     lang = forms.TypedChoiceField(label='Язык', choices=langs)
 
     ans = ((False, 'Нет'), (True, 'Да'))
-    dogperson = forms.ChoiceField(label='Любите собак?', widget=forms.RadioSelect, choices=ans)
-    catperson = forms.ChoiceField(label='Любите кошек?', widget=forms.RadioSelect, choices=ans)
-    cooking = forms.ChoiceField(label='Умеете готовить?', widget=forms.RadioSelect, choices=ans)
+    dogperson = forms.ChoiceField(label='Любите собак?', widget=forms.RadioSelect, choices=ans, initial=True)
+    catperson = forms.ChoiceField(label='Любите кошек?', widget=forms.RadioSelect, choices=ans, initial=True)
+    cooking = forms.ChoiceField(label='Умеете готовить?', widget=forms.RadioSelect, choices=ans, initial=True)
 
     religs = ((None, 'Не выбрано'),
               ('атеизм', 'Атеизм'),
@@ -39,7 +39,7 @@ class RegForm(forms.Form):
 
     avatar = forms.ImageField(label='Ваше фото', required=False)
 
-    agree = forms.BooleanField(label='Согласие на обработку персональных данных')
+    agree = forms.BooleanField(label='Согласие на обработку персональных данных', initial=True)
 
 
 

@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('regform/', views.regform, name='regform'),
-    path('page/', views.page, name='page')
+    # path('page/', views.page, name='page')
 ]

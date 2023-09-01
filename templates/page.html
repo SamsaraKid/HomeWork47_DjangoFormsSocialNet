@@ -9,12 +9,34 @@
 <body>
 
 {#логотип#}
-<header><a href="{% url 'index' %}"><img src="" alt="logo">Соцсеть</a></header>
+<header><a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt="logo"></a></header>
 
 {#основная секция#}
 <section>
+{#    меню#}
+    <div class="menu">
+        <ul>
+            <li>Моя Страница</li>
+            <li>Мои Друзья</li>
+            <li>Мои Фотографии</li>
+            <li>Мои Видеозаписи</li>
+            <li>Мои Аудиозаписи</li>
+            <li>Мои Сообщения</li>
+            <li>Мои Заметки</li>
+            <li>Мои Группы</li>
+            <li>Мои Встречи</li>
+            <li>Мои Новости</li>
+            <li>Мои Закладки</li>
+            <li>Мои Настройки</li>
+        </ul>
+    </div>
+
+    <div class="maindiv">
+        <div class="namediv">{{ name }}{{ ' ' }}{{ surname }}</div>
+    </div>
+
 {#    аватар#}
-    <div><img src="" alt=""></div>
+    <div><img src="{% static avatar %}" alt=""></div>
 
 {#    информация#}
     <div>
