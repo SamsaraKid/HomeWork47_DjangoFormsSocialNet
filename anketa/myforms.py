@@ -41,6 +41,10 @@ class RegForm(forms.Form):
 
     avatar = forms.ImageField(label='Ваше фото', required=False)
 
+    colors = (('red', 'Красный'), ('orange', 'Оранжевый'), ('yellow', 'Жёлтый'), ('green', 'Зелёный'),
+              ('aqua', 'Голубой'), ('blue', 'Синий'), ('purple', 'Фиолетовый'))
+    color = forms.ChoiceField(label='Цвет рамки аватара', choices=colors)
+
     agree = forms.BooleanField(label='Согласие на обработку персональных данных', initial=True)
 
 
