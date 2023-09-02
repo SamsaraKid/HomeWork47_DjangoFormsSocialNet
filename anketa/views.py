@@ -12,13 +12,13 @@ def regform(req):
         data.pop('csrfmiddlewaretoken')
         try:
             avatar = req.FILES['avatar']
-            file = open('anketa/static/upload/300' + avatar.name, 'wb')
+            file = open('anketa/static/upload/' + avatar.name, 'wb')
             file.write(avatar.read())
             file.close()
             data['avatar'] = '/upload/' + avatar.name
         except:
             pass
-        return render(req, 'page.html', data)
+        return render(req, 'page.html', context=data)
     else:
         form = RegForm()
         return render(req, 'forma.html', context={'form': form})
