@@ -6,10 +6,13 @@
     <title>Главная страница</title>
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
 </head>
-<body>
+<body class="index">
 
 <h1>Добро пожаловать в соцсеть</h1>
-<a href="{% url 'regform' %}"><button>Зарегистрироваться</button></a>
+
+<div class="button-center">
+    <a href="{% url 'regform' %}"><button>Зарегистрироваться</button></a>
+</div>
 
 </body>
 </html>

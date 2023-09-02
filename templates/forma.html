@@ -13,10 +13,15 @@
     <table>
         {{ form }}
     </table>
-    <input type="submit" value="Отправить">
+    <div class="button-center">
+        <input type="submit" value="Отправить">
+    </div>
 </form>
 
-<a href="{% url 'regform' %}"><button>Очистить</button></a>
+<br>
+<div class="button-center">
+    <a href="{% url 'regform' %}"><button>Очистить</button></a>
+</div>
 
 </body>
 </html>

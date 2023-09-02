@@ -7,12 +7,12 @@ class RegForm(forms.Form):
     surname = forms.CharField(label='Фамилия', initial='q')
     secondname = forms.CharField(label='Отчество (при наличии)', required=False)
 
-    sexes = ((None, '❓'), ('мужской', '♂️ 	'), ('женский', '♀️ 	'))
-    sex = forms.ChoiceField(label='Пол', choices=sexes, required=False)
+    sexes = (('мужской', '♂️ 	'), ('женский', '♀️ 	'))
+    sex = forms.ChoiceField(label='Пол', choices=sexes)
 
     ages = (('детский',     '0-12 лет'),
             ('юный',        '13-21 лет'),
-            ('молодой',     '22-30'),
+            ('молодой',     '22-30 лет'),
             ('средний',     '31-40 лет'),
             ('зрелый',      '41-55 лет'),
             ('пожилой',     '56-70 лет'),
@@ -22,12 +22,12 @@ class RegForm(forms.Form):
     langs = (('русский', 'Русский'), ('английский', 'English'), ('китайский', '中文'))
     lang = forms.TypedChoiceField(label='Язык', choices=langs)
 
-    ans = ((False, 'Нет'), (True, 'Да'))
+    ans = (('нет', 'Нет'), ('да', 'Да'))
     dogperson = forms.ChoiceField(label='Любите собак?', widget=forms.RadioSelect, choices=ans, initial=True)
     catperson = forms.ChoiceField(label='Любите кошек?', widget=forms.RadioSelect, choices=ans, initial=True)
     cooking = forms.ChoiceField(label='Умеете готовить?', widget=forms.RadioSelect, choices=ans, initial=True)
 
-    religs = ((None, 'Не выбрано'),
+    religs = (('не знаю', 'Не выбрано'),
               ('атеизм', 'Атеизм'),
               ('православие', 'Православие'),
               ('ислам', 'Ислам'),
@@ -36,6 +36,8 @@ class RegForm(forms.Form):
               ('иудаизм', 'Иудаизм'),
               ('агностицизм', 'Агностицизм'))
     religion = forms.ChoiceField(label='Религия', choices=religs, required=False)
+
+    info = forms.CharField(label='Информация о вас', widget=forms.Textarea, required=False)
 
     avatar = forms.ImageField(label='Ваше фото', required=False)
 

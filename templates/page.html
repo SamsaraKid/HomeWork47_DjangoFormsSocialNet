@@ -8,43 +8,66 @@
 </head>
 <body>
 
-{#логотип#}
 <header><a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt="logo"></a></header>
 
-{#основная секция#}
 <section>
-{#    меню#}
     <div class="menu">
         <ul>
-            <li>Моя Страница</li>
-            <li>Мои Друзья</li>
-            <li>Мои Фотографии</li>
-            <li>Мои Видеозаписи</li>
-            <li>Мои Аудиозаписи</li>
-            <li>Мои Сообщения</li>
-            <li>Мои Заметки</li>
-            <li>Мои Группы</li>
-            <li>Мои Встречи</li>
-            <li>Мои Новости</li>
-            <li>Мои Закладки</li>
-            <li>Мои Настройки</li>
+            <li><a href="">Моя Страница</a></li>
+            <li><a href="">Мои Друзья</a></li>
+            <li><a href="">Мои Фотографии</a></li>
+            <li><a href="">Мои Видеозаписи</a></li>
+            <li><a href="">Мои Аудиозаписи</a></li>
+            <li><a href="">Мои Сообщения</a></li>
+            <li><a href="">Мои Заметки</a></li>
+            <li><a href="">Мои Группы</a></li>
+            <li><a href="">Мои Встречи</a></li>
+            <li><a href="">Мои Новости</a></li>
+            <li><a href="">Мои Закладки</a></li>
+            <li><a href="">Мои Настройки</a></li>
         </ul>
     </div>
 
-    <div class="maindiv">
-        <div class="namediv">{{ name }}{{ ' ' }}{{ surname }}</div>
+    <div class="main-div">
+        <div class="name-div"><h4>{{ name }} {{ secondname }} {{ surname }}</h4></div>
+
+        <div class="anketa-div">
+
+            <div class="anketa-left-div">
+                <div class="avatar"><img src="{% static avatar %}" alt=""></div>
+                <div class="anketa-left-div-links">
+                    <table>
+                        <tr><td><a href="">Фотографии с {{ name }}</a></td></tr>
+                        <tr><td><a href="">Друзья пользователя {{ name }}</a></td></tr>
+                        <tr><td><a href="">Отправить сообщение</a></td></tr>
+                        <tr><td><a href="">Добавить в друзья</a></td></tr>
+                        <tr><td><a href="">Добавить в закладки</a></td></tr>
+                        <tr><td><a href="">Голосовать за {{ name }}</a></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="anketa-right-div hover-links-bottom">
+                <table>
+                    <tr><td colspan="2" class="anketa-table-h1"><h3>{{ name }} {{ secondname }} {{ surname }}</h3></td></tr>
+                    <tr class="row-padding-top-3"><td class="anketa-row-name">Пол:</td><td><a href="">{{ sex }}</a></td></tr>
+                    <tr><td class="anketa-row-name">Возраст:</td><td><a href="">{{ age }}</a></td></tr>
+                    <tr><td class="anketa-row-name">Язык:</td><td><a href="">{{ lang }}</a></td></tr>
+                    <tr><td class="anketa-row-name">Религия:</td><td><a href="">{{ religion }}</a></td></tr>
+                    <tr class="row-padding-top-1"><td></td></tr>
+                    <tr><td colspan="2" class="anketa-table-h2"><h4>Информация</h4></td></tr>
+                    <tr class="row-padding-top-2"><td colspan="2" class="anketa-table-h3"><h4>Контактная нформация</h4></td></tr>
+                    <tr><td class="anketa-row-name">E-mail:</td><td><a href="">{{ email }}</a></td></tr>
+                    <tr class="row-padding-top-2"><td colspan="2" class="anketa-table-h3"><h4>Личная информация</h4></td></tr>
+                    <tr><td class="anketa-row-name">Любит кошек:</td><td><a href="">{{ catperson }}</a></td></tr>
+                    <tr><td class="anketa-row-name">Любит собак:</td><td><a href="">{{ dogperson }}</a></td></tr>
+                    <tr><td class="anketa-row-name">Умеет готовить:</td><td><a href="">{{ cooking }}</a></td></tr>
+                    <tr class="row-padding-top-3"><td class="anketa-row-name">Информация о себе:</td><td>{{ info }}</td></tr>
+                </table>
+            </div>
+        </div>
     </div>
 
-{#    аватар#}
-    <div><img src="{% static avatar %}" alt=""></div>
-
-{#    информация#}
-    <div>
-        <table>
-
-        </table>
-    </div>
-    
 </section>
 
 <footer>Андрей Королёв, 2023г.</footer>
